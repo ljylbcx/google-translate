@@ -1,8 +1,8 @@
 # Google Translate
 
-*Automatically translate your site*
+*Translate everything, anywhere*
 
-<a href="https://eager.io/app/<TODO>/install?source=button">
+<a href="https://eager.io/app/91JfWsA2xNdT/install?source=button">
   <img
     src="https://install.eager.io/install-button.png"
     alt="Install Google Translate with Eager"
