@@ -4,10 +4,6 @@
       {
         "type": "script",
         "src": "./dist/app.js"
-      },
-      {
-        "type": "style",
-        "src": "./dist/app.css"
       }
     ]
   },
