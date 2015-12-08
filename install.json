@@ -236,13 +236,13 @@
         "order": 3
       },
       "specificLanguagesToggle": {
-        "title": "Customize Languages",
+        "title": "Customize languages",
         "type": "boolean",
         "order": 4
       },
       "specificLanguages": {
         "description": "Specify which languages the reader is given.",
-        "title": "Customize Languages",
+        "title": "Customize languages",
         "type": "object",
         "order": 5,
         "showIf": "specificLanguagesToggle",
