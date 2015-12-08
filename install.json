@@ -47,6 +47,7 @@
       },
       "pageLanguage": {
         "default": "en",
+        "description": "If your page contains multiple languages, select the “multiple languages” option inside Advanced Options.",
         "enum": [
           "af",
           "sq",
@@ -234,12 +235,13 @@
         "type": "string"
       },
       "specificLanguagesToggle": {
-        "title": "Show specific languages",
+        "title": "Customize Languages",
         "type": "boolean",
         "order": 3
       },
       "specificLanguages": {
-        "title": "Specific Languages",
+        "description": "Specify which languages the reader is given.",
+        "title": "Customize Languages",
         "type": "object",
         "order": 4,
         "showIf": "specificLanguagesToggle",
@@ -704,19 +706,27 @@
         "properties": {
           "autoDisplay": {
             "default": true,
-            "description": "Appears to users speaking languages other than the language of your page.",
+            "description": "Display a banner when a user speaks a language other than the language of your page.",
             "order": 0,
             "title": "Display translation banner",
             "type": "boolean"
           },
           "multilanguagePage": {
+            "description": "Specifying multiple languages allows Google to better identify your page's content.",
             "order": 1,
             "title": "Page contains content in multiple languages",
             "type": "boolean"
           },
-          "gaId": {
+          "analyticsToggle": {
             "order": 2,
             "title": "Track translation traffic using Google Analytics.",
+            "type": "boolean"
+          },
+          "gaId": {
+            "description": "Google Analytics ID (e.g., UA-12345-12)",
+            "order": 3,
+            "showIf": "advancedOptions.analyticsToggle",
+            "title": "Specifying an analytics ID will track readers who use translations.",
             "type": "string"
           }
         }

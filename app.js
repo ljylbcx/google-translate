@@ -35,7 +35,7 @@
       spec.multilanguagePage = advancedOptions.multilanguagePage
       spec.autoDisplay = advancedOptions.autoDisplay
 
-      if (advancedOptions.gaId.length) {
+      if (advancedOptions.analyticsToggle && advancedOptions.gaId.length) {
         spec.gaTrack = true
         spec.gaId = advancedOptions.gaId
       }
