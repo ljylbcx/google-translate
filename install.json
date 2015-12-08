@@ -724,7 +724,8 @@
             "type": "boolean"
           },
           "gaId": {
-            "description": "Google Analytics ID (e.g., UA-12345-12)",
+            "description": "Google Analytics ID",
+            "placeholder": "UA-12345-12",
             "order": 3,
             "showIf": "advancedOptions.analyticsToggle",
             "title": "Specifying an analytics ID will track readers who use translations.",
