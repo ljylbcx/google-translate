@@ -28,23 +28,6 @@
           "method": "prepend"
         }
       },
-      "layout": {
-        "order": 1,
-        "title": "Layout",
-        "type": "string",
-        "default": "SIMPLE",
-        "enum": [
-          "SIMPLE",
-          "VERTICAL",
-          "HORIZONTAL"
-        ],
-        "enumNames": {
-          "SIMPLE": "Simplified",
-          "VERTICAL": "Logo below",
-          "HORIZONTAL": "Logo aside"
-        },
-        "format": "radios"
-      },
       "pageLanguage": {
         "default": "en",
         "description": "If your page contains multiple languages, select the “multiple languages” option inside Advanced Options.",
@@ -230,20 +213,20 @@
           "yo": "Yoruba",
           "zu": "Zulu"
         },
-        "order": 2,
+        "order": 1,
         "title": "Page language",
         "type": "string"
       },
       "specificLanguagesToggle": {
         "title": "Customize Languages",
         "type": "boolean",
-        "order": 3
+        "order": 2
       },
       "specificLanguages": {
         "description": "Specify which languages the reader is given.",
         "title": "Customize Languages",
         "type": "object",
-        "order": 4,
+        "order": 3,
         "showIf": "specificLanguagesToggle",
         "properties": {
           "af": {
@@ -696,10 +679,10 @@
       "advancedOptionsToggle": {
         "title": "Show advanced options",
         "type": "boolean",
-        "order": 5
+        "order": 4
       },
       "advancedOptions": {
-        "order": 6,
+        "order": 5,
         "showIf": "advancedOptionsToggle",
         "title": "Advanced Options",
         "type": "object",

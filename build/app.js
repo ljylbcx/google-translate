@@ -12,12 +12,11 @@
 
   window[CALLBACK_NAME] = function updateElement() {
     var _options = options;
-    var layout = _options.layout;
     var pageLanguage = _options.pageLanguage;
     var TranslateElement = window.google.translate.TranslateElement;
 
     var spec = {
-      layout: TranslateElement.InlineLayout[layout],
+      layout: TranslateElement.InlineLayout.VERTICAL,
       pageLanguage: pageLanguage
     };
 

@@ -9,10 +9,10 @@
   let script
 
   window[CALLBACK_NAME] = function updateElement() {
-    const {layout, pageLanguage} = options
+    const {pageLanguage} = options
     const {TranslateElement} = window.google.translate
     const spec = {
-      layout: TranslateElement.InlineLayout[layout],
+      layout: TranslateElement.InlineLayout.VERTICAL,
       pageLanguage
     }
 
