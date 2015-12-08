@@ -60,11 +60,10 @@
       return entry.parentNode.removeChild(entry);
     });
 
-    script = Object.assign(document.createElement("script"), {
-      // Google's global callback must be used to reliably access `window.google.translate`.
-      src: "//translate.google.com/translate_a/element.js?cb=" + CALLBACK_NAME,
-      type: "text/javascript"
-    });
+    script = document.createElement("script");
+    script.type = "text/javascript";
+    // Google's global callback must be used to reliably access `window.google.translate`.
+    script.src = "//translate.google.com/translate_a/element.js?cb=" + CALLBACK_NAME;
 
     document.head.appendChild(script);
   }
