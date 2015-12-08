@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-  if (!window.addEventListener) return console.log("Client unsupported.");
+  if (!window.addEventListener) return;
 
   var ELEMENT_ID = "eager-google-translate";
   var CALLBACK_NAME = "EagerGoogleTranslateOnload";

@@ -1,5 +1,5 @@
 (function() {
-  if (!window.addEventListener) return console.log("Client unsupported.")
+  if (!window.addEventListener) return
 
   const ELEMENT_ID = "eager-google-translate"
   const CALLBACK_NAME = "EagerGoogleTranslateOnload"
