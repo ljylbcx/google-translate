@@ -63,7 +63,12 @@
 
   window[CALLBACK_NAME] = () => updateElement()
 
-  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", update) : update()
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", update)
+  }
+  else {
+    update()
+  }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setOptions(nextOptions) {
