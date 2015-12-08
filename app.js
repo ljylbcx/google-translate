@@ -1,5 +1,5 @@
 (function() {
-  if (!window.addEventListener) return
+  if (!window.addEventListener) return console.log("Client unsupported.")
 
   const ELEMENT_ID = "eager-google-translate"
   const CALLBACK_NAME = "EagerGoogleTranslateOnload"
@@ -25,7 +25,7 @@
       spec.includedLanguages = Object
         .keys(specificLanguages)
         .filter(key => specificLanguages[key])
-        .map(key => key.replace("_", "-")) // Replaces Eager App schema requirements.
+        .map(key => key.replace("_", "-")) // Convert Eager's schema to Google's.
         .join(",")
     }
 
@@ -55,9 +55,7 @@
       type: "text/javascript"
     })
 
-    document
-     .querySelector("head")
-     .appendChild(script)
+    document.head.appendChild(script)
   }
 
   if (document.readyState === "loading") {
