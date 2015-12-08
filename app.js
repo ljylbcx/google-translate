@@ -45,7 +45,7 @@
   }
 
   function update() {
-    [element, script]
+    [script, document.querySelector(".skiptranslate")]
       .filter(entry => entry && entry.parentNode)
       .forEach(entry => entry.parentNode.removeChild(entry))
 
