@@ -8,7 +8,7 @@
   let element
   let script
 
-  function updateElement() {
+  window[CALLBACK_NAME] = function updateElement() {
     const {layout, pageLanguage} = options
     const {TranslateElement} = window.google.translate
     const spec = {
@@ -59,9 +59,6 @@
      .querySelector("head")
      .appendChild(script)
   }
-
-
-  window[CALLBACK_NAME] = () => updateElement()
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", update)
