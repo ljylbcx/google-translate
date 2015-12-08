@@ -2,6 +2,10 @@
   "resources": {
     "head": [
       {
+        "type": "style",
+        "src": "./build/app.css"
+      },
+      {
         "type": "script",
         "src": "./build/app.js"
       }
@@ -217,16 +221,30 @@
         "title": "Page language",
         "type": "string"
       },
+      "backgroundColor": {
+        "title": "Background color",
+        "type": "string",
+        "format": "color",
+        "default": "#FFFFFF",
+        "order": 2
+      },
+      "textColor": {
+        "title": "Text color",
+        "type": "string",
+        "format": "color",
+        "default": "#000000",
+        "order": 3
+      },
       "specificLanguagesToggle": {
         "title": "Customize Languages",
         "type": "boolean",
-        "order": 2
+        "order": 4
       },
       "specificLanguages": {
         "description": "Specify which languages the reader is given.",
         "title": "Customize Languages",
         "type": "object",
-        "order": 3,
+        "order": 5,
         "showIf": "specificLanguagesToggle",
         "properties": {
           "af": {
@@ -679,10 +697,10 @@
       "advancedOptionsToggle": {
         "title": "Show advanced options",
         "type": "boolean",
-        "order": 4
+        "order": 6
       },
       "advancedOptions": {
-        "order": 5,
+        "order": 7,
         "showIf": "advancedOptionsToggle",
         "title": "Advanced Options",
         "type": "object",

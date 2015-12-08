@@ -7,9 +7,10 @@
   let options = INSTALL_OPTIONS
   let element
   let script
+  let style
 
   window[CALLBACK_NAME] = function updateElement() {
-    const {pageLanguage} = options
+    const {backgroundColor, pageLanguage, textColor} = options
     const {TranslateElement} = window.google.translate
     const spec = {
       layout: TranslateElement.InlineLayout.VERTICAL,
@@ -41,11 +42,16 @@
       }
     }
 
+    [
+      `#${ELEMENT_ID} select { background-color: ${backgroundColor} }`,
+      `#${ELEMENT_ID} select { color: ${textColor} }`
+    ].forEach((rule, index) => style.sheet.insertRule(rule, index))
+
     new TranslateElement(spec, ELEMENT_ID) // eslint-disable-line no-new
   }
 
   function update() {
-    [script, document.querySelector(".skiptranslate")]
+    [style, script, document.querySelector(".skiptranslate")]
       .filter(entry => entry && entry.parentNode)
       .forEach(entry => entry.parentNode.removeChild(entry))
 
@@ -54,7 +60,10 @@
     // Google's global callback must be used to reliably access `window.google.translate`.
     script.src = `//translate.google.com/translate_a/element.js?cb=${CALLBACK_NAME}`
 
+    style = document.createElement("style")
+
     document.head.appendChild(script)
+    document.head.appendChild(style)
   }
 
   if (document.readyState === "loading") {

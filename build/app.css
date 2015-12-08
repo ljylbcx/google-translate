@@ -1,0 +1,23 @@
+#eager-google-translate select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 15 8'><g><polygon fill='rgba(0,0,0,0.734)' transform='translate%287.5, 4.5%29 scale%281, -1%29 translate%28-7.5, -4.5%29' points='7.5 1 14 8 1 8'></polygon></g></svg>");
+  background-position: right 45%;
+  background-repeat: no-repeat;
+  -moz-background-size: 2.5em .6em;
+  -webkit-background-size: 2.5em .6em;
+  background-size: 2.5em .6em;
+  border-bottom-color: #acacac;
+  border: 1px solid #cacaca;
+  cursor: pointer;
+  display: block;
+  line-height: 1.4;
+  margin: 4px 0;
+  max-width: 100%;
+  padding: .6em 2.25em .6em .8em;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+  width: 15em;
+}
+

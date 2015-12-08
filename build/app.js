@@ -9,10 +9,13 @@
   var options = INSTALL_OPTIONS;
   var element = undefined;
   var script = undefined;
+  var style = undefined;
 
   window[CALLBACK_NAME] = function updateElement() {
     var _options = options;
+    var backgroundColor = _options.backgroundColor;
     var pageLanguage = _options.pageLanguage;
+    var textColor = _options.textColor;
     var TranslateElement = window.google.translate.TranslateElement;
 
     var spec = {
@@ -50,11 +53,15 @@
       }
     }
 
+    ["#" + ELEMENT_ID + " select { background-color: " + backgroundColor + " }", "#" + ELEMENT_ID + " select { color: " + textColor + " }"].forEach(function (rule, index) {
+      return style.sheet.insertRule(rule, index);
+    });
+
     new TranslateElement(spec, ELEMENT_ID); // eslint-disable-line no-new
   };
 
   function update() {
-    [script, document.querySelector(".skiptranslate")].filter(function (entry) {
+    [style, script, document.querySelector(".skiptranslate")].filter(function (entry) {
       return entry && entry.parentNode;
     }).forEach(function (entry) {
       return entry.parentNode.removeChild(entry);
@@ -65,7 +72,10 @@
     // Google's global callback must be used to reliably access `window.google.translate`.
     script.src = "//translate.google.com/translate_a/element.js?cb=" + CALLBACK_NAME;
 
+    style = document.createElement("style");
+
     document.head.appendChild(script);
+    document.head.appendChild(style);
   }
 
   if (document.readyState === "loading") {
