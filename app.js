@@ -60,14 +60,15 @@
      .appendChild(script)
   }
 
-  function setOptions(nextOptions) {
-    options = nextOptions
-    update()
-  }
 
   window[CALLBACK_NAME] = () => updateElement()
 
   document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", update) : update()
 
-  window.EagerGoogleTranslate = {setOptions}
+  INSTALL_SCOPE = { // eslint-disable-line no-undef
+    setOptions(nextOptions) {
+      options = nextOptions
+      update()
+    }
+  }
 }())
