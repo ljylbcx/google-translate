@@ -1,7 +1,7 @@
 "use strict";
 
 (function () {
-  if (!window.addEventListener) return;
+  if (!window.addEventListener) return console.log("Client unsupported.");
 
   var ELEMENT_ID = "eager-google-translate";
   var CALLBACK_NAME = "EagerGoogleTranslateOnload";
@@ -10,7 +10,7 @@
   var element = undefined;
   var script = undefined;
 
-  function updateElement() {
+  window[CALLBACK_NAME] = function updateElement() {
     var _options = options;
     var layout = _options.layout;
     var pageLanguage = _options.pageLanguage;
@@ -33,7 +33,7 @@
           return specificLanguages[key];
         }).map(function (key) {
           return key.replace("_", "-");
-        }) // Replaces Eager App schema requirements.
+        }) // Convert Eager's schema to Google's.
         .join(",");
       })();
     }
@@ -52,10 +52,10 @@
     }
 
     new TranslateElement(spec, ELEMENT_ID); // eslint-disable-line no-new
-  }
+  };
 
   function update() {
-    [element, script].filter(function (entry) {
+    [script, document.querySelector(".skiptranslate")].filter(function (entry) {
       return entry && entry.parentNode;
     }).forEach(function (entry) {
       return entry.parentNode.removeChild(entry);
@@ -67,19 +67,19 @@
       type: "text/javascript"
     });
 
-    document.querySelector("head").appendChild(script);
+    document.head.appendChild(script);
   }
 
-  function setOptions(nextOptions) {
-    options = nextOptions;
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", update);
+  } else {
     update();
   }
 
-  window[CALLBACK_NAME] = function () {
-    return updateElement();
+  INSTALL_SCOPE = { // eslint-disable-line no-undef
+    setOptions: function setOptions(nextOptions) {
+      options = nextOptions;
+      update();
+    }
   };
-
-  document.readyState === "loading" ? document.addEventListener("DOMContentLoaded", update) : update();
-
-  window.EagerGoogleTranslate = { setOptions: setOptions };
 })();

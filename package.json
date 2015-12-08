@@ -4,8 +4,8 @@
   "description": "Google Translate for [Eager](https://eager.io).",
   "main": "app.js",
   "scripts": {
-    "start": "babel --watch --out-dir dist app.js",
-    "build": "NODE_ENV=production babel --out-dir dist app.js"
+    "start": "babel --watch --out-dir build app.js",
+    "build": "NODE_ENV=production babel --out-dir build app.js"
   },
   "repository": {
     "type": "git",
