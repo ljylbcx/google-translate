@@ -13,9 +13,8 @@
 
   window[CALLBACK_NAME] = function updateElement() {
     var _options = options;
-    var backgroundColor = _options.backgroundColor;
+    var colors = _options.colors;
     var pageLanguage = _options.pageLanguage;
-    var textColor = _options.textColor;
     var TranslateElement = window.google.translate.TranslateElement;
 
     var spec = {
@@ -53,7 +52,7 @@
       }
     }
 
-    ["#" + ELEMENT_ID + " select { background-color: " + backgroundColor + " }", "#" + ELEMENT_ID + " select { color: " + textColor + " }"].forEach(function (rule, index) {
+    ["#" + ELEMENT_ID + " select { background-color: " + colors.background + " }", "#" + ELEMENT_ID + " select { color: " + colors.text + " }"].forEach(function (rule, index) {
       return style.sheet.insertRule(rule, index);
     });
 
@@ -87,6 +86,12 @@
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setOptions: function setOptions(nextOptions) {
       options = nextOptions;
+
+      // Clear the user's previously selected translation.
+      document.cookie = document.cookie.split("; ").filter(function (cookie) {
+        return cookie.indexOf("googtrans") === -1;
+      }).join("; ");
+
       update();
     }
   };

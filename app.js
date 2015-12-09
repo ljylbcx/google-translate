@@ -76,6 +76,13 @@
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setOptions(nextOptions) {
       options = nextOptions
+
+      // Clear the user's previously selected translation.
+      document.cookie = document.cookie
+        .split("; ")
+        .filter(cookie => cookie.indexOf("googtrans") === -1)
+        .join("; ")
+
       update()
     }
   }
