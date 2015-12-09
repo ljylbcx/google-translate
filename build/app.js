@@ -19,8 +19,9 @@
 
     var rules = ["#" + ELEMENT_ID + " select { background-color: " + background + " }", "#" + ELEMENT_ID + " select { color: " + text + " }"];
 
-    style = document.createElement("style");
-    document.head.appendChild(style);
+    for (var i = 0; i < style.sheet.rules.length; i++) {
+      style.sheet.deleteRule(i);
+    }
 
     rules.forEach(function (rule, index) {
       return style.sheet.insertRule(rule, index);
@@ -64,11 +65,6 @@
 
       spec.multilanguagePage = advancedOptions.multilanguagePage;
       spec.autoDisplay = advancedOptions.autoDisplay;
-
-      if (advancedOptions.analyticsToggle && advancedOptions.gaId.length) {
-        spec.gaTrack = true;
-        spec.gaId = advancedOptions.gaId;
-      }
     }
 
     updateStylesheet();
@@ -78,6 +74,9 @@
 
   function update() {
     [style, script, document.querySelector(".skiptranslate")].forEach(unmountNode);
+
+    style = document.createElement("style");
+    document.head.appendChild(style);
 
     script = document.createElement("script");
     script.type = "text/javascript";
@@ -95,7 +94,6 @@
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setStylesheet: function setStylesheet(nextOptions) {
-      unmountNode(style);
       options = nextOptions;
 
       updateStylesheet();

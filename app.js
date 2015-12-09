@@ -17,8 +17,9 @@
       `#${ELEMENT_ID} select { color: ${text} }`
     ]
 
-    style = document.createElement("style")
-    document.head.appendChild(style)
+    for (let i = 0; i < style.sheet.rules.length; i++) {
+      style.sheet.deleteRule(i)
+    }
 
     rules.forEach((rule, index) => style.sheet.insertRule(rule, index))
   }
@@ -63,6 +64,9 @@
   function update() {
     [style, script, document.querySelector(".skiptranslate")].forEach(unmountNode)
 
+    style = document.createElement("style")
+    document.head.appendChild(style)
+
     script = document.createElement("script")
     script.type = "text/javascript"
     // Google's global callback must be used to reliably access `window.google.translate`.
@@ -80,7 +84,6 @@
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setStylesheet(nextOptions) {
-      unmountNode(style)
       options = nextOptions
 
       updateStylesheet()
