@@ -23,7 +23,7 @@
     rules.forEach((rule, index) => style.sheet.insertRule(rule, index))
   }
 
-  function removeNode(node) {
+  function unmountNode(node) {
     if (node && node.parentNode) node.parentNode.removeChild(node)
   }
 
@@ -66,7 +66,7 @@
   }
 
   function update() {
-    [style, script, document.querySelector(".skiptranslate")].forEach(removeNode)
+    [style, script, document.querySelector(".skiptranslate")].forEach(unmountNode)
 
     script = document.createElement("script")
     script.type = "text/javascript"
@@ -85,7 +85,7 @@
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
     setStylesheet(nextOptions) {
-      removeNode(style)
+      unmountNode(style)
       options = nextOptions
 
       updateStylesheet()
