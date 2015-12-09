@@ -1,9 +1,9 @@
 (function() {
+  // Check for IE9+
   if (!window.addEventListener) return
 
   const ELEMENT_ID = "eager-google-translate"
   const CALLBACK_NAME = "EagerGoogleTranslateOnload"
-
 
   let options = INSTALL_OPTIONS
   let element
@@ -11,17 +11,17 @@
   let style
 
   function updateStylesheet() {
-    const {colors: {background, text}} = options
-    const rules = [
-      `#${ELEMENT_ID} select { background-color: ${background} }`,
-      `#${ELEMENT_ID} select { color: ${text} }`
-    ]
+    const {colors: {background, foreground, text}} = options
 
-    for (let i = 0; i < style.sheet.rules.length; i++) {
-      style.sheet.deleteRule(i)
-    }
+    style.innerHTML = `
+      .goog-te-gadget {
+        background-color: ${background};
+      }
 
-    rules.forEach((rule, index) => style.sheet.insertRule(rule, index))
+      #${ELEMENT_ID} select {
+        background-color: ${foreground};
+        color: ${text};
+      }`
   }
 
   function unmountNode(node) {

@@ -1,6 +1,7 @@
 "use strict";
 
 (function () {
+  // Check for IE9+
   if (!window.addEventListener) return;
 
   var ELEMENT_ID = "eager-google-translate";
@@ -15,17 +16,10 @@
     var _options = options;
     var _options$colors = _options.colors;
     var background = _options$colors.background;
+    var foreground = _options$colors.foreground;
     var text = _options$colors.text;
 
-    var rules = ["#" + ELEMENT_ID + " select { background-color: " + background + " }", "#" + ELEMENT_ID + " select { color: " + text + " }"];
-
-    for (var i = 0; i < style.sheet.rules.length; i++) {
-      style.sheet.deleteRule(i);
-    }
-
-    rules.forEach(function (rule, index) {
-      return style.sheet.insertRule(rule, index);
-    });
+    style.innerHTML = "\n      .goog-te-gadget {\n        background-color: " + background + ";\n      }\n\n      #" + ELEMENT_ID + " select {\n        background-color: " + foreground + ";\n        color: " + text + ";\n      }";
   }
 
   function unmountNode(node) {
@@ -73,7 +67,7 @@
   };
 
   function update() {
-    [style, script, document.querySelector(".skiptranslate")].forEach(unmountNode);
+    [script, document.querySelector(".skiptranslate")].forEach(unmountNode);
 
     style = document.createElement("style");
     document.head.appendChild(style);

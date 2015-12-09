@@ -238,16 +238,23 @@
         "type": "object",
         "properties": {
           "background": {
-            "default": "#FFFFFF",
+            "default": "#eeeeee",
             "format": "color",
             "order": 0,
             "title": "Background",
             "type": "string"
           },
+          "foreground": {
+            "default": "#FFFFFF",
+            "format": "color",
+            "order": 1,
+            "title": "Foreground",
+            "type": "string"
+          },
           "text": {
             "default": "#000000",
             "format": "color",
-            "order": 1,
+            "order": 2,
             "title": "Text",
             "type": "string"
           }
