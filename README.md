@@ -9,7 +9,6 @@ When you install Google Translate, visitors whose language is different from you
 ### Features
 
 - Themeable controls
-- Google Analytics integration
 - Automatic detection when a user speaks a language different from your page's
 
 <a href="https://eager.io/app/91JfWsA2xNdT/install?source=button">

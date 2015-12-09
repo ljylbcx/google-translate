@@ -736,20 +736,6 @@
             "order": 1,
             "title": "Page contains content in multiple languages",
             "type": "boolean"
-          },
-          "analyticsToggle": {
-            "description": "Send usage information to Google Analytics when a user a chooses to translate your page.",
-            "order": 2,
-            "title": "Track translation interactions using Google Analytics",
-            "type": "boolean"
-          },
-          "gaId": {
-            "description": "Your Tracking ID is found in the <a href=\"https://support.google.com/analytics/answer/1032385\" target=\"_blank\" class=\"with-inherited-color more\"><strong>Google Analytics Dashboard</strong></a>",
-            "placeholder": "UA-12345-12",
-            "order": 3,
-            "showIf": "advancedOptions.analyticsToggle",
-            "title": "Google Analytics Tracking ID",
-            "type": "string"
           }
         }
       }

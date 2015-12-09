@@ -53,11 +53,6 @@
 
       spec.multilanguagePage = advancedOptions.multilanguagePage
       spec.autoDisplay = advancedOptions.autoDisplay
-
-      if (advancedOptions.analyticsToggle && advancedOptions.gaId.length) {
-        spec.gaTrack = true
-        spec.gaId = advancedOptions.gaId
-      }
     }
 
     updateStylesheet()
