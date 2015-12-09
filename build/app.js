@@ -11,10 +11,29 @@
   var script = undefined;
   var style = undefined;
 
-  window[CALLBACK_NAME] = function updateElement() {
+  function updateStylesheet() {
     var _options = options;
-    var colors = _options.colors;
-    var pageLanguage = _options.pageLanguage;
+    var _options$colors = _options.colors;
+    var background = _options$colors.background;
+    var text = _options$colors.text;
+
+    var rules = ["#" + ELEMENT_ID + " select { background-color: " + background + " }", "#" + ELEMENT_ID + " select { color: " + text + " }"];
+
+    style = document.createElement("style");
+    document.head.appendChild(style);
+
+    rules.forEach(function (rule, index) {
+      return style.sheet.insertRule(rule, index);
+    });
+  }
+
+  function removeNode(node) {
+    if (node && node.parentNode) node.parentNode.removeChild(node);
+  }
+
+  window[CALLBACK_NAME] = function updateElement() {
+    var _options2 = options;
+    var pageLanguage = _options2.pageLanguage;
     var TranslateElement = window.google.translate.TranslateElement;
 
     var spec = {
@@ -27,8 +46,8 @@
 
     if (options.specificLanguagesToggle) {
       (function () {
-        var _options2 = options;
-        var specificLanguages = _options2.specificLanguages;
+        var _options3 = options;
+        var specificLanguages = _options3.specificLanguages;
 
         spec.includedLanguages = Object.keys(specificLanguages).filter(function (key) {
           return specificLanguages[key];
@@ -40,8 +59,8 @@
     }
 
     if (options.advancedOptionsToggle) {
-      var _options3 = options;
-      var advancedOptions = _options3.advancedOptions;
+      var _options4 = options;
+      var advancedOptions = _options4.advancedOptions;
 
       spec.multilanguagePage = advancedOptions.multilanguagePage;
       spec.autoDisplay = advancedOptions.autoDisplay;
@@ -52,29 +71,20 @@
       }
     }
 
-    ["#" + ELEMENT_ID + " select { background-color: " + colors.background + " }", "#" + ELEMENT_ID + " select { color: " + colors.text + " }"].forEach(function (rule, index) {
-      return style.sheet.insertRule(rule, index);
-    });
+    updateStylesheet();
 
     new TranslateElement(spec, ELEMENT_ID); // eslint-disable-line no-new
   };
 
   function update() {
-    [style, script, document.querySelector(".skiptranslate")].filter(function (entry) {
-      return entry && entry.parentNode;
-    }).forEach(function (entry) {
-      return entry.parentNode.removeChild(entry);
-    });
+    [style, script, document.querySelector(".skiptranslate")].forEach(removeNode);
 
     script = document.createElement("script");
     script.type = "text/javascript";
     // Google's global callback must be used to reliably access `window.google.translate`.
     script.src = "//translate.google.com/translate_a/element.js?cb=" + CALLBACK_NAME;
 
-    style = document.createElement("style");
-
     document.head.appendChild(script);
-    document.head.appendChild(style);
   }
 
   if (document.readyState === "loading") {
@@ -84,6 +94,12 @@
   }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
+    setStylesheet: function setStylesheet(nextOptions) {
+      removeNode(style);
+      options = nextOptions;
+
+      updateStylesheet();
+    },
     setOptions: function setOptions(nextOptions) {
       options = nextOptions;
 

@@ -14,7 +14,18 @@
   "preview": {
     "handlers": [
       {
-        "options": ["*"],
+        "options": ["colors"],
+        "execute": "INSTALL_SCOPE.setStylesheet(INSTALL_OPTIONS)"
+      },
+      {
+        "options": [
+          "element",
+          "pageLanguage",
+          "specificLanguagesToggle",
+          "specificLanguages",
+          "advancedOptionsToggle",
+          "advancedOptions"
+        ],
         "execute": "INSTALL_SCOPE.setOptions(INSTALL_OPTIONS)"
       }
     ]
@@ -23,7 +34,7 @@
     "properties": {
       "element": {
         "title": "Location",
-        "description": "Where would you like the translator to appear?",
+        "description": "Where would you like the language selector to appear?",
         "order": 0,
         "type": "object",
         "format": "element",
@@ -245,13 +256,13 @@
       "specificLanguagesToggle": {
         "title": "Customize languages",
         "type": "boolean",
-        "order": 4
+        "order": 3
       },
       "specificLanguages": {
         "description": "Specify which languages the reader is given.",
         "title": "Customize languages",
         "type": "object",
-        "order": 5,
+        "order": 4,
         "showIf": "specificLanguagesToggle",
         "properties": {
           "af": {
@@ -704,10 +715,10 @@
       "advancedOptionsToggle": {
         "title": "Show advanced options",
         "type": "boolean",
-        "order": 6
+        "order": 5
       },
       "advancedOptions": {
-        "order": 7,
+        "order": 6,
         "showIf": "advancedOptionsToggle",
         "title": "Advanced Options",
         "type": "object",
