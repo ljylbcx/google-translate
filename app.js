@@ -62,7 +62,7 @@
   }
 
   function update() {
-    [style, script, document.querySelector(".skiptranslate")].forEach(unmountNode)
+    [script, document.querySelector(".skiptranslate")].forEach(unmountNode)
 
     style = document.createElement("style")
     document.head.appendChild(style)
