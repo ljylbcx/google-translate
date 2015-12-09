@@ -1,6 +1,6 @@
 {
   "name": "eager-google-translate",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Google Translate for [Eager](https://eager.io).",
   "main": "app.js",
   "scripts": {
