@@ -10,7 +10,7 @@
   let style
 
   window[CALLBACK_NAME] = function updateElement() {
-    const {backgroundColor, pageLanguage, textColor} = options
+    const {colors, pageLanguage} = options
     const {TranslateElement} = window.google.translate
     const spec = {
       layout: TranslateElement.InlineLayout.VERTICAL,
@@ -43,8 +43,8 @@
     }
 
     [
-      `#${ELEMENT_ID} select { background-color: ${backgroundColor} }`,
-      `#${ELEMENT_ID} select { color: ${textColor} }`
+      `#${ELEMENT_ID} select { background-color: ${colors.background} }`,
+      `#${ELEMENT_ID} select { color: ${colors.text} }`
     ].forEach((rule, index) => style.sheet.insertRule(rule, index))
 
     new TranslateElement(spec, ELEMENT_ID) // eslint-disable-line no-new

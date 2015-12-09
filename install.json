@@ -221,19 +221,26 @@
         "title": "Page language",
         "type": "string"
       },
-      "backgroundColor": {
-        "title": "Background color",
-        "type": "string",
-        "format": "color",
-        "default": "#FFFFFF",
-        "order": 2
-      },
-      "textColor": {
-        "title": "Text color",
-        "type": "string",
-        "format": "color",
-        "default": "#000000",
-        "order": 3
+      "colors": {
+        "order": 2,
+        "title": "Language selector colors",
+        "type": "object",
+        "properties": {
+          "background": {
+            "default": "#FFFFFF",
+            "format": "color",
+            "order": 0,
+            "title": "Background",
+            "type": "string"
+          },
+          "text": {
+            "default": "#000000",
+            "format": "color",
+            "order": 1,
+            "title": "Text",
+            "type": "string"
+          }
+        }
       },
       "specificLanguagesToggle": {
         "title": "Customize languages",
