@@ -33,8 +33,7 @@
   "options": {
     "properties": {
       "element": {
-        "title": "Location",
-        "description": "Where would you like the language selector to appear?",
+        "title": "Language selector location",
         "order": 0,
         "type": "object",
         "format": "element",
@@ -44,8 +43,7 @@
         }
       },
       "position": {
-        "title": "Position",
-        "description": "On which part of the screen should the language selector appear?",
+        "title": "Language selector alignment",
         "type": "string",
         "order": 1,
         "default": "center",
@@ -58,6 +56,34 @@
           "left": "Left",
           "center": "Center",
           "right": "Right"
+        }
+      },
+      "colors": {
+        "order": 2,
+        "title": "Language selector colors",
+        "type": "object",
+        "properties": {
+          "background": {
+            "default": "#efefef",
+            "format": "color",
+            "order": 0,
+            "title": "Box",
+            "type": "string"
+          },
+          "foreground": {
+            "default": "#fafafa",
+            "format": "color",
+            "order": 1,
+            "title": "Dropdown",
+            "type": "string"
+          },
+          "text": {
+            "default": "#444444",
+            "format": "color",
+            "order": 2,
+            "title": "Text",
+            "type": "string"
+          }
         }
       },
       "pageLanguage": {
@@ -245,47 +271,18 @@
           "yo": "Yoruba",
           "zu": "Zulu"
         },
-        "order": 2,
+        "order": 3,
         "title": "Page language",
         "type": "string"
       },
-      "colors": {
-        "order": 3,
-        "title": "Language selector colors",
-        "type": "object",
-        "properties": {
-          "background": {
-            "default": "#f6f5f7",
-            "format": "color",
-            "order": 0,
-            "title": "Background",
-            "type": "string"
-          },
-          "foreground": {
-            "default": "#FFFFFF",
-            "format": "color",
-            "order": 1,
-            "title": "Foreground",
-            "type": "string"
-          },
-          "text": {
-            "default": "#000000",
-            "format": "color",
-            "order": 2,
-            "title": "Text",
-            "type": "string"
-          }
-        }
-      },
       "specificLanguagesToggle": {
-        "description": "Would you like to choose a specific list of languages to offer to your visitors?",
+        "description": "Optionally choose a specific list of languages to offer to your visitors",
         "title": "Customize languages",
         "type": "boolean",
         "order": 4
       },
       "specificLanguages": {
         "title": "Languages",
-        "description": "Which languages should be offered?",
         "type": "object",
         "order": 5,
         "showIf": "specificLanguagesToggle",
@@ -750,7 +747,7 @@
         "properties": {
           "autoDisplay": {
             "default": true,
-            "description": "Display a banner offering to translate the page into the user's native language to visitors who do not speak the language your page is written in.",
+            "description": "Optionally display a banner offering to translate the page into the user’s native language to visitors who do not speak the language your page is written in.",
             "order": 0,
             "title": "Display translation banner",
             "type": "boolean"
