@@ -19,6 +19,8 @@
     var foreground = _options$colors.foreground;
     var text = _options$colors.text;
 
+    element.setAttribute("data-position", options.position);
+
     style.innerHTML = "\n      .goog-te-gadget {\n        background-color: " + background + ";\n      }\n\n      #" + ELEMENT_ID + " select {\n        background-color: " + foreground + ";\n        color: " + text + ";\n      }";
   }
 

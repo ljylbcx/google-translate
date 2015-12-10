@@ -11,9 +11,9 @@
   border-bottom-color: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  display: inline-block;
+  display: block;
   line-height: 1.4;
-  margin: 0 0 8px;
+  margin: 0 auto 8px;
   max-width: 100%;
   padding: .6em 2.25em .6em .8em;
   -webkit-tap-highlight-color: transparent;
@@ -51,9 +51,25 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: inherit !important;
-  margin: 0 auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
   max-width: 100%;
   padding: 15px 15px 11px;
   text-align: center;
   width: 20em;
+}
+
+#eager-google-translate[data-position="left"] .goog-te-gadget {
+  margin-left: 1em;
+  margin-right: auto;
+}
+
+#eager-google-translate[data-position="center"] .goog-te-gadget {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#eager-google-translate[data-position="right"] .goog-te-gadget {
+  margin-left: auto;
+  margin-right: 1em;
 }

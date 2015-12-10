@@ -13,6 +13,8 @@
   function updateStylesheet() {
     const {colors: {background, foreground, text}} = options
 
+    element.setAttribute("data-position", options.position)
+
     style.innerHTML = `
       .goog-te-gadget {
         background-color: ${background};
