@@ -276,7 +276,7 @@
         "type": "string"
       },
       "specificLanguagesToggle": {
-        "description": "Optionally choose a specific list of languages to offer to your visitors",
+        "description": "Optionally choose a specific list of languages to offer to your visitors.",
         "title": "Customize languages",
         "type": "boolean",
         "order": 4
