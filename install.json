@@ -278,14 +278,14 @@
         }
       },
       "specificLanguagesToggle": {
-        "description": " Display only chosen languages in selector.",
+        "description": "Would you like to choose a specific list of languages to offer to your visitors?",
         "title": "Customize languages",
         "type": "boolean",
         "order": 4
       },
       "specificLanguages": {
         "title": "Languages",
-        "description": "Specify which languages the reader is given.",
+        "description": "Which languages should be offered?",
         "type": "object",
         "order": 5,
         "showIf": "specificLanguagesToggle",
@@ -750,13 +750,13 @@
         "properties": {
           "autoDisplay": {
             "default": true,
-            "description": "Display a banner offering to translate the page into the user's native language to visitors who do not speak your page's language.",
+            "description": "Display a banner offering to translate the page into the user's native language to visitors who do not speak the language your page is written in.",
             "order": 0,
             "title": "Display translation banner",
             "type": "boolean"
           },
           "multilanguagePage": {
-            "description": "If you include text of multiple languages on your page, this option will improve the quality of your translations.",
+            "description": "If you include text in multiple languages on your page, selecting this option will improve the quality of your translations.",
             "order": 1,
             "title": "Page contains content in multiple languages",
             "type": "boolean"
