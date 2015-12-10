@@ -51,8 +51,8 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-family: inherit !important;
-  margin-bottom: 1em;
-  margin-top: 1em;
+  margin-bottom: 1.1em;
+  margin-top: 1.1em;
   max-width: 100%;
   padding: 15px 15px 11px;
   text-align: center;
@@ -60,7 +60,7 @@
 }
 
 #eager-google-translate[data-position="left"] .goog-te-gadget {
-  margin-left: 1em;
+  margin-left: 1.1em;
   margin-right: auto;
 }
 
@@ -71,5 +71,5 @@
 
 #eager-google-translate[data-position="right"] .goog-te-gadget {
   margin-left: auto;
-  margin-right: 1em;
+  margin-right: 1.1em;
 }
