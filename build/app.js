@@ -6,11 +6,13 @@
 
   var ELEMENT_ID = "eager-google-translate";
   var CALLBACK_NAME = "EagerGoogleTranslateOnload";
+  var style = document.createElement("style");
+
+  document.head.appendChild(style);
 
   var options = INSTALL_OPTIONS;
   var element = undefined;
   var script = undefined;
-  var style = undefined;
 
   function updateStylesheet() {
     var _options = options;
@@ -68,11 +70,8 @@
     new TranslateElement(spec, ELEMENT_ID); // eslint-disable-line no-new
   };
 
-  function update() {
+  function updateScript() {
     [script, document.querySelector(".skiptranslate")].forEach(unmountNode);
-
-    style = document.createElement("style");
-    document.head.appendChild(style);
 
     script = document.createElement("script");
     script.type = "text/javascript";
@@ -83,9 +82,9 @@
   }
 
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", update);
+    document.addEventListener("DOMContentLoaded", updateScript);
   } else {
-    update();
+    updateScript();
   }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
@@ -102,7 +101,7 @@
         return cookie.indexOf("googtrans") === -1;
       }).join("; ");
 
-      update();
+      updateScript();
     }
   };
 })();
