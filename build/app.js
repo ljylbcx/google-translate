@@ -8,6 +8,8 @@
   var CALLBACK_NAME = "EagerGoogleTranslateOnload";
   var style = document.createElement("style");
 
+  document.head.appendChild(style);
+
   var options = INSTALL_OPTIONS;
   var element = undefined;
   var script = undefined;
@@ -79,15 +81,10 @@
     document.head.appendChild(script);
   }
 
-  function onLoad() {
-    document.head.appendChild(style);
-    updateScript();
-  }
-
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", onLoad);
+    document.addEventListener("DOMContentLoaded", updateScript);
   } else {
-    onLoad();
+    updateScript();
   }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef

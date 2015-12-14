@@ -6,6 +6,8 @@
   const CALLBACK_NAME = "EagerGoogleTranslateOnload"
   const style = document.createElement("style")
 
+  document.head.appendChild(style)
+
   let options = INSTALL_OPTIONS
   let element
   let script
@@ -74,16 +76,11 @@
     document.head.appendChild(script)
   }
 
-  function onLoad() {
-    document.head.appendChild(style)
-    updateScript()
-  }
-
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", onLoad)
+    document.addEventListener("DOMContentLoaded", updateScript)
   }
   else {
-    onLoad()
+    updateScript()
   }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
