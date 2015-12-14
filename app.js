@@ -4,11 +4,11 @@
 
   const ELEMENT_ID = "eager-google-translate"
   const CALLBACK_NAME = "EagerGoogleTranslateOnload"
+  const style = document.createElement("style")
 
   let options = INSTALL_OPTIONS
   let element
   let script
-  let style
 
   function updateStylesheet() {
     const {colors: {background, foreground, text}} = options
@@ -63,11 +63,8 @@
     new TranslateElement(spec, ELEMENT_ID) // eslint-disable-line no-new
   }
 
-  function update() {
+  function updateScript() {
     [script, document.querySelector(".skiptranslate")].forEach(unmountNode)
-
-    style = document.createElement("style")
-    document.head.appendChild(style)
 
     script = document.createElement("script")
     script.type = "text/javascript"
@@ -77,11 +74,16 @@
     document.head.appendChild(script)
   }
 
+  function onLoad() {
+    document.head.appendChild(style)
+    updateScript()
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", update)
+    document.addEventListener("DOMContentLoaded", onLoad)
   }
   else {
-    update()
+    onLoad()
   }
 
   INSTALL_SCOPE = { // eslint-disable-line no-undef
@@ -99,7 +101,7 @@
         .filter(cookie => cookie.indexOf("googtrans") === -1)
         .join("; ")
 
-      update()
+      updateScript()
     }
   }
 }())
