@@ -11,10 +11,11 @@ When you install Google Translate, visitors whose language is different from you
 - Themeable controls
 - Automatic detection when a user speaks a language different from your page's
 
-<a href="https://eager.io/app/91JfWsA2xNdT/install?source=button">
+
+<a href="https://www.cloudflare.com/apps/google-translate/install?source=button">
   <img
     src="https://install.eager.io/install-button.png"
-    alt="Install Google Translate with Eager"
+    alt="Install Google Translate with Cloudflare"
     border="0"
-    width="140">
+    width="150">
 </a>

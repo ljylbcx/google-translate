@@ -1,4 +1,4 @@
-#eager-google-translate select {
+#cloudflare-app-google-translate select {
   -moz-appearance: none;
   -webkit-appearance: none;
   appearance: none;
@@ -59,17 +59,17 @@
   width: 20em;
 }
 
-#eager-google-translate[data-position="left"] .goog-te-gadget {
+#cloudflare-app-google-translate[data-position="left"] .goog-te-gadget {
   margin-left: 1.1em;
   margin-right: auto;
 }
 
-#eager-google-translate[data-position="center"] .goog-te-gadget {
+#cloudflare-app-google-translate[data-position="center"] .goog-te-gadget {
   margin-left: auto;
   margin-right: auto;
 }
 
-#eager-google-translate[data-position="right"] .goog-te-gadget {
+#cloudflare-app-google-translate[data-position="right"] .goog-te-gadget {
   margin-left: auto;
   margin-right: 1.1em;
 }
