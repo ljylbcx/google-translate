@@ -3,7 +3,7 @@
     "head": [
       {
         "type": "style",
-        "src": "./app.css"
+        "src": "./build/app.css"
       },
       {
         "type": "script",
