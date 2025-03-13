@@ -1,6 +1,6 @@
 (function () {
   // Check for IE9+
-  if (!window.addEventListener) return
+  //if (!window.addEventListener) return
 
   // An ID is required for the translate API.
   const ELEMENT_ID = 'cloudflare-app-google-translate'
